@@ -1,6 +1,7 @@
 const {resolve} = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     context: resolve(__dirname, 'src'),
@@ -43,7 +44,10 @@ module.exports = {
     plugins: [
         new webpack.NamedModulesPlugin(),
         // prints more readable module names in the browser console on HMR updates
-
+        new HtmlWebpackPlugin ({
+            inject: true,
+            template: '../index.html'
+        }),
         new ExtractTextPlugin({filename: 'styles.css', allChunks: true})
     ],
 };

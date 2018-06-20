@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const DefinePlugin = webpack.DefinePlugin;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     context: resolve(__dirname, 'src'),
@@ -11,7 +12,7 @@ module.exports = {
         // the entry point of our app
     ],
     output: {
-        filename: 'main.js',
+        filename: 'js/main.js',
         path: resolve(__dirname, 'dist')
     },
     devtool: false,
@@ -50,9 +51,13 @@ module.exports = {
                 NODE_ENV: JSON.stringify('production')
             }
         }),
+        new HtmlWebpackPlugin ({
+            inject: true,
+            template: '../index.html'
+        }),
         new UglifyJsPlugin({
             sourceMap: false
         }),
-        new ExtractTextPlugin({filename: 'styles.css', allChunks: true})
+        new ExtractTextPlugin({filename: 'css/styles.css', allChunks: true})
     ],
 };
