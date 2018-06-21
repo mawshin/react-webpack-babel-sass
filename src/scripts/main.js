@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter} from 'react-router-dom';
+import {HashRouter} from 'react-router-dom';
 
 import ReactRouter from './router';
 // import DemoComponent from './DemoComponent';
@@ -25,7 +25,9 @@ Router.run(App, function (Handler) {
 });*/
 
 ReactDOM.render((
-  <BrowserRouter>
+  <HashRouter >
     <ReactRouter />
-  </BrowserRouter>
+  </HashRouter >
 ), document.getElementById('react-container'));
+
+// ReactDOM.render(<ReactRouter/>, document.getElementById('react-container'));

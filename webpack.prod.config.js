@@ -13,7 +13,8 @@ module.exports = {
     ],
     output: {
         filename: 'js/main.js',
-        path: resolve(__dirname, 'dist')
+        path: resolve(__dirname, 'dist'),
+        publicPath: './'
     },
     devtool: false,
     module: {
