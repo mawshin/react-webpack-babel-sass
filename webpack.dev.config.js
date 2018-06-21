@@ -1,6 +1,8 @@
 const {resolve} = require('path');
+const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     context: resolve(__dirname, 'src'),
@@ -27,6 +29,10 @@ module.exports = {
     },
     devtool: 'source-map',
     devServer: {
+        historyApiFallback: true,
+        port: 8080,
+        // for routing 
+
         hot: true,
         // enable HMR on the server
 
@@ -65,6 +71,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            template: './index.html'
+        }),
         new webpack.HotModuleReplacementPlugin(),
         // enable HMR globally
 

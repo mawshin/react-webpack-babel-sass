@@ -12,6 +12,10 @@ module.exports = {
     output: {
         filename: 'main.js',
     },
+    devServer: {
+        historyApiFallback: true,
+        port: 8080
+    },
     devtool: 'source-map',
     module: {
         rules: [
