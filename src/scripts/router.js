@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink, Router, Route, Switch} from 'react-router-dom';
+import {NavLink, Router, Route, Switch, Link} from 'react-router-dom';
 
 // import DemoComponent from './DemoComponent';
 import HeaderBar from './Header';
@@ -12,10 +12,22 @@ import '../styles/styles.scss';
 
 const ReactRouter = () => (
 	<main>
+		<ul className="c-navbar">
+	        <li>
+	            <Link to="/">Home</Link>
+	        </li>
+	        <li>
+	            <Link to="/test">Test</Link>
+	        </li>
+	        <li>
+	            <Link to="/app">App</Link>
+	        </li>
+	    </ul>
+
 		<Switch>
-			<Route exact path="/" component={Test} />
-			<Route path="/test" component={HeaderBar} />
-			<Route path="/app" component={Home} />
+			<Route exact path="/" component={Home} />
+			<Route path="/test" component={Test} />
+			<Route path="/app" component={HeaderBar} />
 		</Switch>
 	</main>
 );

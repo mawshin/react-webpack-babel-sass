@@ -1,0 +1,15 @@
+// =====================
+// Component - Navbar 
+// =====================
+.c-navbar {
+    list-style: none;
+
+    li {
+    	display: inline-block;
+
+    	&:not(:first-child) {
+    		margin-left: 1rem;
+    	}
+    }
+}
+
